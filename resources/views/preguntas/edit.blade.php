@@ -22,8 +22,8 @@
                   {{ Form::text('pregunta', $pregunta->pregunta, array('id' => 'pregunta', 'name' => 'pregunta', 'class' => "form-control" , 'placeholder' => 'Ingrese un pregunta')) }}
                 </div>
                 <div class="form-group">
-                  <label for="activo">Correcta</label>
-                  <input type="checkbox" data-toggle="toggle" name="correcta" id="correcta"
+                  <label for="activo">Activo</label>
+                  <input type="checkbox" data-toggle="toggle" name="activo" id="activo"
                   @if ($pregunta->activo)
                     checked
                   @endif
