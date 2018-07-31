@@ -16,20 +16,30 @@
 
               <div class="col-12">
 
-                {{ Form::open(array('url' => URL::to('categorias/' . $categoria->id), 'method' => 'PUT', 'role' => 'form')) }}
+                {{ Form::open(array('url' => URL::to('respuestas/' . $respuesta->id), 'method' => 'PUT', 'role' => 'form')) }}
                 <div class="form-group">
-                  <label for="">categoria</label>
-                  {{ Form::text('categoria', $categoria->categoria, array('id' => 'categoria', 'name' => 'categoria', 'class' => "form-control" , 'placeholder' => 'Ingrese un categoria')) }}
+                  <label for="">respuesta</label>
+                  {{ Form::text('respuesta', $respuesta->respuesta, array('id' => 'respuesta', 'name' => 'respuesta', 'class' => "form-control" , 'placeholder' => 'Ingrese un respuesta')) }}
                 </div>
                 <div class="form-group">
-                  <label for="activo">Activo</label>
-                  <input type="checkbox" data-toggle="toggle" name="activo" id="activo"
-                  @if ($categoria->activo)
+                  <label for="activo">Correcta</label>
+                  <input type="checkbox" data-toggle="toggle" name="correcta" id="correcta"
+                  @if ($respuesta->correcta)
                     checked
                   @endif
                   >
 
                 </div>
+                <div class="form-group">
+                  <label for="activo">Activo</label>
+                  <input type="checkbox" data-toggle="toggle" name="activo" id="activo"
+                  @if ($respuesta->activo)
+                    checked
+                  @endif
+                  >
+
+                </div>
+
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 {{ Form::close() }}
               </div>

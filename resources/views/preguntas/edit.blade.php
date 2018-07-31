@@ -16,15 +16,15 @@
 
               <div class="col-12">
 
-                {{ Form::open(array('url' => URL::to('respuestas/' . $respuesta->id), 'method' => 'PUT', 'role' => 'form')) }}
+                {{ Form::open(array('url' => URL::to('preguntas/' . $pregunta->id), 'method' => 'PUT', 'role' => 'form')) }}
                 <div class="form-group">
-                  <label for="">respuesta</label>
-                  {{ Form::text('respuesta', $respuesta->respuesta, array('id' => 'respuesta', 'name' => 'respuesta', 'class' => "form-control" , 'placeholder' => 'Ingrese un respuesta')) }}
+                  <label for="">pregunta</label>
+                  {{ Form::text('pregunta', $pregunta->pregunta, array('id' => 'pregunta', 'name' => 'pregunta', 'class' => "form-control" , 'placeholder' => 'Ingrese un pregunta')) }}
                 </div>
                 <div class="form-group">
                   <label for="activo">Correcta</label>
                   <input type="checkbox" data-toggle="toggle" name="correcta" id="correcta"
-                  @if ($respuesta->activo)
+                  @if ($pregunta->activo)
                     checked
                   @endif
                   >

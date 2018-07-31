@@ -52,7 +52,7 @@
         <td>
           <h5>
           <a href="/respuestas/{{ $respuesta->id }}/edit"><i class="fas fa-edit"></i></a>
-          <a href="/respuestas/{{ $respuesta->id }}/respuestas"><i class="fas fa-eye"></i></a>
+
         </h5>
 
         </td>

@@ -21,14 +21,14 @@
               <div class="col-12">
 
                 {{ Form::open(array('route' => 'preguntas.store',  'autocomplete' => 'off')) }}
-                {{ Form::hidden('preguntas_id', $pregunta->id, array('id' => 'preguntas_id', 'name' => 'preguntas_id')) }}
+                {{ Form::hidden('categorias_id', $categoria->id, array('id' => 'categorias_id', 'name' => 'categorias_id')) }}
                 <div class="form-group">
                   <label for="">Respuesta</label>
                   <input type="respuesta" class="form-control" name="respuesta" id="respuesta" placeholder="Ingrese respuesta">
                 </div>
                 <div class="form-group">
-                  <label for="activo">Correcta</label>
-                  <input type="checkbox" data-toggle="toggle" name="correcta" id="correcta">
+                  <label for="activo">Activo</label>
+                  <input type="checkbox" data-toggle="toggle" name="activo" id="activo">
                 </div>
 
                 <button type="submit" class="btn btn-primary">Guardar</button>

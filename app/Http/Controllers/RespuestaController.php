@@ -98,8 +98,8 @@ class RespuestaController extends Controller
     }
 
     $respuesta = Respuesta::find($id);
-    $title = "Pregunta Editar";
-    return view('preguntas.edit', ['respuesta' => $respuesta, 'title' => $title ]);
+    $title = "Respuesta Editar";
+    return view('respuestas.edit', ['respuesta' => $respuesta, 'title' => $title ]);
   }
 
 
@@ -112,7 +112,7 @@ class RespuestaController extends Controller
     }
 
     $validator = Validator::make($request->all(), [
-      'categoria' => 'required|unique:categorias,categoria,'.$id . '|max:125',
+      'respuesta' => 'required|max:125',
 
     ]);
 
@@ -127,14 +127,20 @@ class RespuestaController extends Controller
       die;
     }
 
+    $correcta = 0;
+    if ($request->correcta=='on') { $correcta = 1; }
+
     $activo = 0;
     if ($request->activo=='on') { $activo = 1; }
 
-    $categoria = Categoria::find($id);
-    $categoria->categoria = $request->categoria;
-    $categoria->activo = $activo;
-    $categoria->save();
-    return redirect('/categorias');
+    $respuesta = Respuesta::find($id);
+    $preguntas_id = $respuesta->preguntas_id;
+    $respuesta->respuesta = $request->respuesta;
+    $respuesta->correcta = $correcta;
+    $respuesta->activo = $activo;
+
+    $respuesta->save();
+    return redirect('/preguntas/' . $preguntas_id . '/respuestas');
 
   }
 

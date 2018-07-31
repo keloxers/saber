@@ -93,9 +93,9 @@ class PreguntaController extends Controller
       return redirect()->back()->with('errors', $errors)->withInput();
     }
 
-    $categoria = Categoria::find($id);
-    $title = "categoria Editar";
-    return view('categorias.edit', ['categoria' => $categoria, 'title' => $title ]);
+    $pregunta = Pregunta::find($id);
+    $title = "pregunta Editar";
+    return view('preguntas.edit', ['pregunta' => $pregunta, 'title' => $title ]);
   }
 
 
@@ -108,7 +108,7 @@ class PreguntaController extends Controller
     }
 
     $validator = Validator::make($request->all(), [
-      'categoria' => 'required|unique:categorias,categoria,'.$id . '|max:125',
+      'pregunta' => 'required|unique:preguntas,pregunta,'.$id,
 
     ]);
 
@@ -126,11 +126,12 @@ class PreguntaController extends Controller
     $activo = 0;
     if ($request->activo=='on') { $activo = 1; }
 
-    $categoria = Categoria::find($id);
-    $categoria->categoria = $request->categoria;
-    $categoria->activo = $activo;
-    $categoria->save();
-    return redirect('/categorias');
+    $pregunta = Pregunta::find($id);
+    $categorias_id = $pregunta->categorias_id;
+    $pregunta->pregunta = $request->pregunta;
+    $pregunta->activo = $activo;
+    $pregunta->save();
+    return redirect('/categorias/' . $categorias_id . '/preguntas');
 
   }
 
