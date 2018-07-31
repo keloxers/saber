@@ -23,12 +23,12 @@
                 {{ Form::open(array('route' => 'preguntas.store',  'autocomplete' => 'off')) }}
                 {{ Form::hidden('categorias_id', $categoria->id, array('id' => 'categorias_id', 'name' => 'categorias_id')) }}
                 <div class="form-group">
-                  <label for="">Respuesta</label>
-                  <input type="respuesta" class="form-control" name="respuesta" id="respuesta" placeholder="Ingrese respuesta">
+                  <label for="">Pregunta</label>
+                  <input type="pregunta" class="form-control" name="pregunta" id="pregunta" placeholder="Ingrese pregunta">
                 </div>
                 <div class="form-group">
                   <label for="activo">Activo</label>
-                  <input type="checkbox" data-toggle="toggle" name="activo" id="activo">
+                  <input type="checkbox" data-toggle="toggle" name="activo" id="activo" checked>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Guardar</button>
