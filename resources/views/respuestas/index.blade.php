@@ -4,7 +4,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>{{$title}}</h1>
+      <h1>
+      <a href="/categorias/{{$pregunta->id}}/preguntas">
+      <i class="fas fa-caret-square-left"></i>
+      </a>
+        {{$title}}</h1>
       <br>
     </div>
   </div>

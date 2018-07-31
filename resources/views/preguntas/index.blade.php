@@ -9,7 +9,6 @@
       <i class="fas fa-caret-square-left"></i>
       </a>
       {{$title}}</h1>
-
       <br>
     </div>
   </div>
