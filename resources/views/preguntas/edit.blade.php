@@ -16,11 +16,24 @@
 
               <div class="col-12">
 
-                {{ Form::open(array('url' => URL::to('preguntas/' . $pregunta->id), 'method' => 'PUT', 'role' => 'form')) }}
+                {{ Form::open(array('url' => URL::to('preguntas/' . $pregunta->id), 'method' => 'PUT', 'role' => 'form', 'enctype' => 'multipart/form-data')) }}
                 <div class="form-group">
-                  <label for="">pregunta</label>
+                  <label for="">Pregunta</label>
                   {{ Form::text('pregunta', $pregunta->pregunta, array('id' => 'pregunta', 'name' => 'pregunta', 'class' => "form-control" , 'placeholder' => 'Ingrese un pregunta')) }}
                 </div>
+
+                <div class="form-group">
+                  @if ($pregunta->url_foto=="")
+                  <label for="">Imagen</label><br>
+                  <input type="file" class="btn btn-default" name="file" id="file" title="Buscar imagen">
+                  @else
+                  <img src="{{Storage::url($pregunta->url_foto)}}" alt="imagen" class="img-thumbnail">
+                  <a href="/preguntas/{{$pregunta->id}}/eliminarfoto">
+                  <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                  </a>
+                  @endif
+                </div>
+
                 <div class="form-group">
                   <label for="activo">Activo</label>
                   <input type="checkbox" data-toggle="toggle" name="activo" id="activo"

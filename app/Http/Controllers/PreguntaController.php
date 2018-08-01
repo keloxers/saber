@@ -9,6 +9,9 @@ use Bouncer;
 use App\Categoria;
 use App\Pregunta;
 
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 
 class PreguntaController extends Controller
 {
@@ -74,6 +77,24 @@ class PreguntaController extends Controller
       $pregunta->categorias_id = $request->categorias_id;
       $pregunta->pregunta = $request->pregunta;
       $pregunta->activo = $activo;
+
+      if ($request->hasFile('file')) {
+        // recibe la imagen y la achica.
+
+        $file = $request->file('file');
+        $url_foto = $file->hashName('public/preguntas');
+        $image = Image::make($file);
+        $image->widen(400);
+        Storage::put($url_foto, (string) $image->encode());
+
+        $pregunta->url_foto = $url_foto;
+
+      } else {
+        $pregunta->url_foto = '';
+      }
+
+
+
       $pregunta->save();
       return redirect('/categorias/' . $request->categorias_id . '/preguntas');
 
@@ -94,7 +115,7 @@ class PreguntaController extends Controller
     }
 
     $pregunta = Pregunta::find($id);
-    $title = "pregunta Editar";
+    $title = "Pregunta Editar";
     return view('preguntas.edit', ['pregunta' => $pregunta, 'title' => $title ]);
   }
 
@@ -107,21 +128,7 @@ class PreguntaController extends Controller
       return redirect()->back()->with('errors', $errors)->withInput();
     }
 
-    $validator = Validator::make($request->all(), [
-      'pregunta' => 'required|unique:preguntas,pregunta,'.$id,
 
-    ]);
-
-
-    if ($validator->fails()) {
-      foreach($validator->messages()->getMessages() as $field_name => $messages) {
-        foreach($messages AS $message) {
-          $errors[] = $message;
-        }
-      }
-      return redirect()->back()->with('errors', $errors)->withInput();
-      die;
-    }
 
     $activo = 0;
     if ($request->activo=='on') { $activo = 1; }
@@ -130,6 +137,22 @@ class PreguntaController extends Controller
     $categorias_id = $pregunta->categorias_id;
     $pregunta->pregunta = $request->pregunta;
     $pregunta->activo = $activo;
+
+    if ($request->hasFile('file')) {
+      // recibe la imagen y la achica.
+      $file = $request->file('file');
+      $url_foto = $file->hashName('public/jugadors');
+      $image = Image::make($file);
+      $image->widen(200);
+      Storage::put($url_foto, (string) $image->encode());
+
+      $pregunta->url_foto = $url_foto;
+
+    } else {
+      $pregunta->url_foto = '';
+    }
+
+
     $pregunta->save();
     return redirect('/categorias/' . $categorias_id . '/preguntas');
 
@@ -241,6 +264,23 @@ class PreguntaController extends Controller
 
   }
 
+
+
+      public function eliminarfoto($id)
+      {
+
+        if (Bouncer::cannot('Configuracion')) {
+          $errors[] = 'No tiene autorizacion para ingresar a este modulo.';
+          return redirect()->back()->with('errors', $errors)->withInput();
+        }
+
+        $pregunta = Pregunta::find($id);
+
+        Storage::delete($pregunta->url_foto);
+        $pregunta->url_foto='';
+        $pregunta->save();
+        return redirect('/preguntas/' . $pregunta->id . '/edit');
+      }
 
 
 

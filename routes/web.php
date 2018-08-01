@@ -49,6 +49,7 @@ Route::post('/preguntas/finder', [ 'as' => 'preguntas.finder', 'uses' => 'Pregun
 Route::get( '/preguntas/search', array('as' => 'preguntas.search', 'uses' => 'PreguntaController@search'));
 Route::get('/preguntas/{id}/create', 'PreguntaController@create')->name('preguntas');
 Route::get( '/preguntas/{id}/respuestas', array('as' => 'respuestas.index', 'uses' => 'RespuestaController@index'));
+Route::get( '/preguntas/{id}/eliminarfoto', array('as' => 'preguntas.eliminarfoto', 'uses' => 'PreguntaController@eliminarfoto'));
 Route::resource('preguntas', 'PreguntaController');
 
 Route::post('/respuestas/finder', [ 'as' => 'respuestas.finder', 'uses' => 'RespuestaController@finder']);
