@@ -141,7 +141,7 @@ class PreguntaController extends Controller
     if ($request->hasFile('file')) {
       // recibe la imagen y la achica.
       $file = $request->file('file');
-      $url_foto = $file->hashName('public/jugadors');
+      $url_foto = $file->hashName('public/preguntas');
       $image = Image::make($file);
       $image->widen(200);
       Storage::put($url_foto, (string) $image->encode());
