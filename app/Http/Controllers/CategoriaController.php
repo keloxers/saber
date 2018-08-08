@@ -20,7 +20,7 @@ class CategoriaController extends Controller
     }
 
 
-    $categorias = Categoria::paginate(25);
+    $categorias = Categoria::paginate(50);
     $title = "Categorias";
     return view('categorias.index', ['categorias' => $categorias, 'title' => $title ]);
 

@@ -25,7 +25,7 @@ class PreguntaController extends Controller
     }
 
     $categoria = Categoria::find($id);
-    $preguntas = Pregunta::where('categorias_id',$id)->paginate(25);
+    $preguntas = Pregunta::where('categorias_id',$id)->paginate(75);
     $title = "Categoria: " . $categoria->categoria;
     return view('preguntas.index', ['categoria' => $categoria, 'preguntas' => $preguntas, 'title' => $title ]);
 
