@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+<?php
+  use App\Pregunta;
+?>
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -32,6 +37,8 @@
     <thead class="thead-light">
       <tr>
         <th scope="col">Categoria</th>
+        <th scope="col">Total de preguntas</th>
+        <th scope="col">Activas</th>
         <th scope="col">Estado</th>
         <th scope="col">Opciones</th>
       </tr>
@@ -44,6 +51,15 @@
           {{ $categoria->categoria}}
           </a>
         </td>
+        <td>
+          <?php $preguntas = Pregunta::where('categorias_id', $categoria->id)->count(); ?>
+          {{$preguntas}}
+        </td>
+        <td>
+          <?php $preguntas = Pregunta::where('categorias_id', $categoria->id)->where('activo', true)->count(); ?>
+          {{$preguntas}}
+        </td>
+
         <td>
           @if ($categoria->activo)
             <span class="badge badge-success">Activo</span>
