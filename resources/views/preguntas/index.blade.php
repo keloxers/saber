@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+<?php
+  use App\Respuesta;
+?>
+
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -36,6 +41,7 @@
     <thead class="thead-light">
       <tr>
         <th scope="col">Pregunta</th>
+        <th scope="col">Tipo</th>
         <th scope="col">Estado</th>
         <th scope="col">Opciones</th>
       </tr>
@@ -47,6 +53,24 @@
           <a href="/preguntas/{{ $pregunta->id }}/respuestas">
           {{ $pregunta->pregunta}}
           </a>
+        </td>
+        <td>
+
+          <?php
+            $respuestas = Respuesta::where('preguntas_id', $pregunta->id)->count();
+           ?>
+           @if ($respuestas==0)
+            No tiene respuestas cargadas. 
+           @else
+            Hay ({{$respuestas}}) respuestas cargadas.
+           @endif
+
+           @if ($pregunta->url_foto=="")
+              No posee fotos.
+           @else
+              Tiene una foto cargada.
+           @endif
+
         </td>
         <td>
           @if ($pregunta->activo)
