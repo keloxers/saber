@@ -14,7 +14,51 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="row">
+                      <div class="col-12">
+                        <a href="/rula">
+                          <button type="button" class="btn btn-primary">Ruleta</button>
+                        </a>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-12">
+                        <br><br><br>
+                        <h1> Categorias</h1>
+                        <br>
+                        <a href="/rula/deportes">
+                          <button type="button" class="btn btn-primary">Deportes</button>
+                        </a>
+                        <a href="/rula/arte">
+                          <button type="button" class="btn btn-primary">Arte</button>
+                        </a>
+                        <a href="/rula/virasoro">
+                          <button type="button" class="btn btn-primary">Virasoro</button>
+                        </a>
+                        <a href="/rula/corrientes">
+                          <button type="button" class="btn btn-primary">Corrientes</button>
+                        </a>
+                        <br><br>
+                        <a href="/rula/geografia">
+                          <button type="button" class="btn btn-primary">Geografia</button>
+                        </a>
+                        <a href="/rula/historia">
+                          <button type="button" class="btn btn-primary">Historia</button>
+                        </a>
+                        <a href="/rula/ciencias">
+                          <button type="button" class="btn btn-primary">Ciencias</button>
+                        </a>
+                        <a href="/rula/matematias">
+                          <button type="button" class="btn btn-primary">Matematias</button>
+                        </a>
+
+
+                      </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>

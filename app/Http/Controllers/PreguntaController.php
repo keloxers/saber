@@ -84,7 +84,7 @@ class PreguntaController extends Controller
         $file = $request->file('file');
         $url_foto = $file->hashName('public/preguntas');
         $image = Image::make($file);
-        $image->widen(400);
+        // $image->widen(400);
         Storage::put($url_foto, (string) $image->encode());
 
         $pregunta->url_foto = $url_foto;
@@ -143,7 +143,7 @@ class PreguntaController extends Controller
       $file = $request->file('file');
       $url_foto = $file->hashName('public/preguntas');
       $image = Image::make($file);
-      $image->widen(200);
+      // $image->widen(200);
       Storage::put($url_foto, (string) $image->encode());
 
       $pregunta->url_foto = $url_foto;

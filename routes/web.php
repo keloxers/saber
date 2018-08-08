@@ -18,6 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/rula', 'HomeController@rula')->name('rula');
+Route::get('/rula/{categoria}', 'RulaController@index')->name('index');
+Route::get('/rula/{respuestas_id}/escorrecta', 'RulaController@escorrecta')->name('escorrecta');
 
 
 Route::get('/users/{id}/assignedroles', 'AssignedroleController@index')->name('abilities');
