@@ -33,7 +33,6 @@
 
                 <script  src="/js/rula.js"></script>
 
-
         </div>
     </body>
 </html>

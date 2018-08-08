@@ -22,10 +22,12 @@ class RespuestaController extends Controller
       return redirect()->back()->with('errors', $errors)->withInput();
     }
 
+$pregunta = Pregunta::find($id);
     $pregunta = Pregunta::find($id);
+    $categoria = Categoria::find($pregunta->categorias_id);
     $respuestas = Respuesta::where('preguntas_id',$id)->paginate(25);
     $title = "Pregunta: " . $pregunta->pregunta;
-    return view('respuestas.index', ['pregunta' => $pregunta, 'respuestas' => $respuestas, 'title' => $title ]);
+    return view('respuestas.index', ['pregunta' => $pregunta, 'categoria' => $categoria, 'respuestas' => $respuestas, 'title' => $title ]);
 
   }
 

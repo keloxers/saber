@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-12">
       <h1>
-      <a href="/categorias/{{$pregunta->id}}/preguntas">
+      <a href="/categorias/{{$categoria->id}}/preguntas">
       <i class="fas fa-caret-square-left"></i>
       </a>
         {{$title}}</h1>
