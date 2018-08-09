@@ -89,6 +89,9 @@
                                   <a class="dropdown-item" href="/categorias">
                                     Categorias
                                   </a>
+                                  <a class="dropdown-item" href="/impresion">
+                                    Impresion
+                                  </a>
 
 
                                 </div>

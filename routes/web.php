@@ -45,6 +45,8 @@ Route::post('/categorias/finder', [ 'as' => 'categorias.finder', 'uses' => 'Cate
 Route::get('/categorias/{id}/destroy', 'CategoriaController@destroy')->name('categorias');
 Route::get( '/categorias/search', array('as' => 'categorias.search', 'uses' => 'CategoriaController@search'));
 Route::get( '/categorias/{id}/preguntas', array('as' => 'preguntas.index', 'uses' => 'PreguntaController@index'));
+Route::get( '/impresion', array('as' => 'categorias.impresion', 'uses' => 'CategoriaController@impresion'));
+
 
 Route::resource('categorias', 'CategoriaController');
 

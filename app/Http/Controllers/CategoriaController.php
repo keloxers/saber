@@ -236,6 +236,22 @@ class CategoriaController extends Controller
   }
 
 
+  public function impresion()
+  {
+
+    if (Bouncer::cannot('Configuracion')) {
+      $errors[] = 'No tiene autorizacion para ingresar a este modulo.';
+      return redirect()->back()->with('errors', $errors)->withInput();
+    }
+
+
+    $categorias = Categoria::paginate(50);
+    $title = "Impresion total de preguntas";
+    return view('categorias.impresion', ['categorias' => $categorias, 'title' => $title ]);
+
+  }
+
+
 
 
 }
