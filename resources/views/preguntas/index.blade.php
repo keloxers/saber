@@ -60,7 +60,7 @@
             $respuestas = Respuesta::where('preguntas_id', $pregunta->id)->count();
            ?>
            @if ($respuestas==0)
-            No tiene respuestas cargadas. 
+            No tiene respuestas cargadas.
            @else
             Hay ({{$respuestas}}) respuestas cargadas.
            @endif
@@ -81,8 +81,9 @@
         </td>
         <td>
           <h5>
-          <a href="/preguntas/{{ $pregunta->id }}/edit"><i class="fas fa-edit"></i></a>
+          <a href="/preguntas/{{ $pregunta->id }}/edit"><i class="fas fa-edit"></i></a>          
           <a href="/preguntas/{{ $pregunta->id }}/respuestas"><i class="fas fa-eye"></i></a>
+          <a href="/preguntas/{{ $pregunta->id }}"><i class="fas fa-trash"></i></a>
         </h5>
 
         </td>

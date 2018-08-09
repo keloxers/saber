@@ -16,17 +16,17 @@
 
               <div class="col-12">
 
-                {{ Form::open(array('url' => '/categorias/' . $categoria->id, 'class' => 'form-group', 'role' => 'form')) }}
+                {{ Form::open(array('url' => '/preguntas/' . $pregunta->id, 'class' => 'form-group', 'role' => 'form')) }}
                 {{ Form::hidden('_method', 'DELETE') }}
 
                 <div class="form-group">
-                  <label for="">categoria</label>
-                  {{ $categoria->categoria}}
+                  <label for="">pregunta</label>
+                  {{ $pregunta->pregunta}}
                 </div>
                 <div class="form-group">
                   <label for="activo">Estado</label>
 
-                  @if ($categoria->activo)
+                  @if ($pregunta->activo)
                     <span class="badge badge-success">Activo</span>
                   @else
                     <span class="badge badge-danger">Inactivo</span>

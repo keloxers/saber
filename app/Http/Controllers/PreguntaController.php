@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Bouncer;
 use App\Categoria;
+use App\Respuesta;
 use App\Pregunta;
 
 use Illuminate\Support\Facades\Storage;
@@ -173,7 +174,7 @@ class PreguntaController extends Controller
     ]);
 
     $validator = Validator::make($request->all(), [
-      'id' => 'required|exists:categorias,id',
+      'id' => 'required|exists:preguntas,id',
     ]);
 
 
@@ -187,9 +188,11 @@ class PreguntaController extends Controller
       die;
     }
 
-    $categoria = Categoria::find($id);
-    $categoria->delete();
-    return redirect('/categorias/');
+    $pregunta = Pregunta::find($id);
+    $categorias_id = $pregunta->categorias_id;
+    $respuestas = Respuesta::where('preguntas_id', '=', $pregunta->id)->delete();
+    $pregunta->delete();
+    return redirect('/categorias/' . $categorias_id . '/preguntas/');
 
 
   }
@@ -245,7 +248,7 @@ class PreguntaController extends Controller
     ]);
 
     $validator = Validator::make($request->all(), [
-      'id' => 'required|exists:categorias,id',
+      'id' => 'required|exists:preguntas,id',
     ]);
 
     if ($validator->fails()) {
@@ -258,9 +261,9 @@ class PreguntaController extends Controller
       die;
     }
 
-    $categoria = Categoria::find($id);
-    $title='categoria ver';
-    return view('categorias.show', ['categoria' => $categoria, 'title' => $title]);
+    $pregunta = Pregunta::find($id);
+    $title='Pregunta ver';
+    return view('preguntas.show', ['pregunta' => $pregunta, 'title' => $title]);
 
   }
 
