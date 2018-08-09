@@ -161,7 +161,7 @@ $pregunta = Pregunta::find($id);
     ]);
 
     $validator = Validator::make($request->all(), [
-      'id' => 'required|exists:categorias,id',
+      'id' => 'required|exists:respuestas,id',
     ]);
 
 
@@ -175,9 +175,10 @@ $pregunta = Pregunta::find($id);
       die;
     }
 
-    $categoria = Categoria::find($id);
-    $categoria->delete();
-    return redirect('/categorias/');
+    $respuesta = Respuesta::find($id);
+    $preguntas_id = $respuesta->preguntas_id;
+    $respuesta->delete();
+    return redirect('/preguntas/' . $preguntas_id . '/respuestas/');
 
 
   }
@@ -233,7 +234,7 @@ $pregunta = Pregunta::find($id);
     ]);
 
     $validator = Validator::make($request->all(), [
-      'id' => 'required|exists:categorias,id',
+      'id' => 'required|exists:respuestas,id',
     ]);
 
     if ($validator->fails()) {
@@ -246,9 +247,9 @@ $pregunta = Pregunta::find($id);
       die;
     }
 
-    $categoria = Categoria::find($id);
-    $title='categoria ver';
-    return view('categorias.show', ['categoria' => $categoria, 'title' => $title]);
+    $respuesta = Respuesta::find($id);
+    $title='Respuesta ver';
+    return view('respuestas.show', ['respuesta' => $respuesta, 'title' => $title]);
 
   }
 

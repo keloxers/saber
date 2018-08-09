@@ -56,7 +56,7 @@
         <td>
           <h5>
           <a href="/respuestas/{{ $respuesta->id }}/edit"><i class="fas fa-edit"></i></a>
-
+          <a href="/respuestas/{{ $respuesta->id }}"><i class="fas fa-trash"></i></a>
         </h5>
 
         </td>
