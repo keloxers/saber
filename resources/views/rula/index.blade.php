@@ -18,7 +18,6 @@
     <div class="col-12">
       <div class="alert alert-primary" role="alert">
       <h1 class="display-3">
-
       {{$title}}
     </h1>
     </div>

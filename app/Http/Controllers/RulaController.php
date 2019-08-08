@@ -38,9 +38,9 @@ class RulaController extends Controller
           return view('rula.noindex', ['title' => $title ]);
         }
 
-        // $pregunta_marcar = Pregunta::find($pregunta->id);
-        // $pregunta_marcar->activo = false;
-        // $pregunta_marcar->save();
+        $pregunta_marcar = Pregunta::find($pregunta->id);
+        $pregunta_marcar->activo = false;
+        $pregunta_marcar->save();
 
 
         $respuestas = Respuesta::where('preguntas_id', $pregunta->id)
