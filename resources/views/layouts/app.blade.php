@@ -105,18 +105,17 @@
 
 
 
-
-        @if(count(session('errors')) > 0)
+        @if (session('errors') != null && count(session('errors')) > 0)
         <div class="alert alert-danger">
-          <ul>
-            @foreach (session('errors') as $error)
-            <li>
-                {{ $error }}
-            </li>
-            @endforeach
-          </ul>
+            <ul>
+                @foreach (session('errors') as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-        @endif
+    @endif
+
+
 
 
         <main class="py-4">
