@@ -35,8 +35,8 @@
   <div class="row">
     <div class="col-12">
       <div class="alert alert-warning" role="warning">
-      <h1 class="display-1">
-        <div style="text-align:center;width: 1000px;margin: 0 auto;border-style: dotted;">
+      <h1 class="display-3">
+        <div style="text-align:center;width: 700px;margin: 0 auto;border-style: dotted;">
         Tiempo: <span id="countdown"></span>
       </div>
       </h1>
