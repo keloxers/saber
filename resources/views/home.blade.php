@@ -47,8 +47,8 @@
                         <a href="/rula/deportes">
                           <button type="button" class="btn btn-primary">Deportes</button>
                         </a>
-                        <a href="/rula/arte">
-                          <button type="button" class="btn btn-primary">Arte</button>
+                        <a href="/rula/colegiovs">
+                          <button type="button" class="btn btn-primary">Colegio Vélez Sarsfield</button>
                         </a>
 
 

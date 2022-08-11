@@ -1,5 +1,5 @@
 
-var options = ["Virasoro","Corrientes","Geografía","Historia","Ciencias","Deportes","Arte"];
+var options = ["Virasoro","Corrientes","Geografía","Historia","Ciencias","Deportes","ColegioVS"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
