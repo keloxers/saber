@@ -2,15 +2,6 @@
 
 @section('content')
 
-<style>
-    body{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-size: 16vw;
-    }
-  </style>
   <script>
             window.onload = updateClock;
 
@@ -26,7 +17,9 @@
               }
             }
     </script>
-<span id="countdown"></span>
+    <h1>
+      <span id="countdown"></span>
+    <h1>
 
 <div class="container">
 
